@@ -1,0 +1,55 @@
+.books {
+  //max-width: 1100px;
+  min-width: 320px;
+}
+
+.book {
+  display: flex;
+  flex-direction: row;
+  background: #f1f1f1;
+  margin: 15px 0;
+
+  a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  p {
+    color: #adafb2;
+    font-size: 16px;
+  }
+
+  &__readed {
+    background: #ed1b2f;
+  }
+}
+
+.book__img {
+  margin-top: 5px;
+}
+
+.book__desc {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin-left: 10px;
+  margin-right: 30px;
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+  }
+}
+
+.book__title {
+  margin: 10px 0;
+}
+
+.book__rate {
+  align-self: center;
+  margin-left: auto;
+  margin-right: 25px;
+}

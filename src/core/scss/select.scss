@@ -1,0 +1,19 @@
+.select {
+  display: flex;
+  min-width: 320px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.select-item {
+  width: 50%;
+  cursor: pointer;
+}
+
+.my-cards {
+  border-right: 1px solid grey;
+}
+
+.title {
+  text-align: center;
+}

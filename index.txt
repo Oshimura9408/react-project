@@ -1,0 +1,55 @@
+<header class="page-header">
+      <div class="search">
+        <div class="search__input">
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="select">
+        <div class="select-item my-cards">
+          <div class="title"><span>My cards</span></div>
+        </div>
+        <div class="select-item magazine-cards">
+          <div class="title"><span>Magazine cards</span></div>
+        </div>
+      </section>
+      <section class="cards">
+        <div class="cards__container">
+          <div class="item">
+            <img
+              class="item__img"
+              src="http://dummyimage.com/280x70/4169E1&text=Lenta"
+            />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+          <div class="item">
+            <img
+              class="item__img"
+              src="http://dummyimage.com/280x70/4169E1&text=Lenta"
+            />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+          <div class="item">
+            <img src="http://dummyimage.com/280x70/4169E1&text=Lenta" />
+          </div>
+        </div>
+      </section>
+    </main>
