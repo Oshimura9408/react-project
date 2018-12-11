@@ -11,7 +11,7 @@ class Book extends PureComponent {
 
     return (
       <div
-        className={`book ${book.isReaded ? 'book__readed' : ''}`}
+        className={`book ${book.isReaded ? 'book--readed' : ''}`}
         onClick={toogleBook}
         data-id={book.id}
       >
@@ -33,27 +33,6 @@ Rating:
     );
   }
 }
-
-// function Book({ data }) {
-//   return (
-//     <div className={`book ${data.isReaded ? 'book__readed' : ''}`}>
-//       <a className="book__img" href="#"><img src={data.img} alt="" /></a>
-//       <div className="book__desc">
-//         <a className="book__title" href="#">{data.name}</a>
-//         <p>
-// Description:
-//           {data.description}
-//         </p>
-//       </div>
-//       <div className="book__rate">
-//         <span>
-// Rating:
-//           {data.rating}
-//         </span>
-//       </div>
-//     </div>
-//   );
-// }
 
 Book.propTypes = {
   book: PropTypes.shape({

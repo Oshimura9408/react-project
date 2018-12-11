@@ -1,5 +1,5 @@
 export const fetchTasks = {
-  path: '/api/v001/tasks',
+  path: '/api/books',
   method: 'GET'
 };
 

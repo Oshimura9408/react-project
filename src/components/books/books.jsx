@@ -2,114 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Book from './book';
 
-// const books = [
-//   {
-//     id: '1',
-//     img: 'https://via.placeholder.com/150',
-//     genre: 'romance',
-//     name: 'Twilight',
-//     description: 'testtesttesttesttesttesttesttesttest',
-//     rating: '4',
-//     isReaded: false
-//   },
-//   {
-//     id: '2',
-//     img: 'https://via.placeholder.com/150',
-//     genre: 'romance',
-//     name: 'Fifty Shades Darker',
-//     description: 'testtesttesttesttesttesttesttesttest',
-//     rating: '4',
-//     isReaded: true
-//   },
-//   {
-//     id: '3',
-//     img: 'https://via.placeholder.com/150',
-//     genre: 'romance',
-//     name: 'The Selection',
-//     description: 'testtesttesttesttesttesttesttesttest',
-//     rating: '4',
-//     isReaded: false
-//   },
-//   {
-//     id: '4',
-//     img: 'https://via.placeholder.com/150',
-//     genre: 'fantasy',
-//     name: 'Harry Potter',
-//     description: 'testtesttesttesttesttesttesttesttest',
-//     rating: '4',
-//     isReaded: true
-//   },
-//   {
-//     id: '5',
-//     img: 'https://via.placeholder.com/150',
-//     genre: 'classics',
-//     name: 'The Great Gatsby',
-//     description: 'testtesttesttesttesttesttesttesttest',
-//     rating: '2',
-//     isReaded: true
-//   }
-// ];
-
-// function Books() {
-//   return (
-//     <div className="books">
-//       {books.map(data => (
-//         <Book data={data} key={data.id} />
-//       ))}
-//     </div>
-//   );
-// }
+import createRequest from '../../core/create-request';
+import { fetchTasks } from '../../core/api-config';
+import classNames from '../../class-names/class-names';
 
 class Books extends Component {
   state = {
-    books: [
-      {
-        id: '1',
-        img: 'https://via.placeholder.com/150',
-        genre: 'romance',
-        name: 'Twilight',
-        description: 'testtesttesttesttesttesttesttesttest',
-        rating: '4',
-        isReaded: false
-      },
-      {
-        id: '2',
-        img: 'https://via.placeholder.com/150',
-        genre: 'romance',
-        name: 'Fifty Shades Darker',
-        description: 'testtesttesttesttesttesttesttesttest',
-        rating: '4',
-        isReaded: true
-      },
-      {
-        id: '3',
-        img: 'https://via.placeholder.com/150',
-        genre: 'romance',
-        name: 'The Selection',
-        description: 'testtesttesttesttesttesttesttesttest',
-        rating: '4',
-        isReaded: false
-      },
-      {
-        id: '4',
-        img: 'https://via.placeholder.com/150',
-        genre: 'fantasy',
-        name: 'Harry Potter',
-        description: 'testtesttesttesttesttesttesttesttest',
-        rating: '4',
-        isReaded: true
-      },
-      {
-        id: '5',
-        img: 'https://via.placeholder.com/150',
-        genre: 'classics',
-        name: 'The Great Gatsby',
-        description: 'testtesttesttesttesttesttesttesttest',
-        rating: '2',
-        isReaded: true
-      }
-    ]
+    isLoading: true,
+    books: []
   };
+
+  componentDidMount() {
+    createRequest(fetchTasks).then(({ status, data }) => {
+      if (status === 'OK') {
+        this.setState({ isLoading: false, books: data });
+      }
+    });
+  }
 
   toogleBook = (event) => {
     const { id } = event.currentTarget.dataset;
@@ -125,10 +34,10 @@ class Books extends Component {
   };
 
   render() {
-    const { books } = this.state;
+    const { books, isLoading } = this.state;
 
     return (
-      <div className="books">
+      <div className={classNames('books', { loading: isLoading })}>
         {books.map(book => (
           <Book book={book} toogleBook={this.toogleBook} key={book.id} />
         ))}
