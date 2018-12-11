@@ -64,5 +64,10 @@ module.exports = {
       template: './src/core/index.html'
     }),
     new CleanWebpackPlugin('dist')
-  ]
+  ],
+
+  devServer: {
+    historyApiFallback: true,
+    proxy: { '/api': 'http://localhost:3000' }
+  }
 };

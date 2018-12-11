@@ -1,31 +1,62 @@
-import React from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import Icon from '../icon/icons.svg';
 
-function Book({ data }) {
-  return (
-    <div className={`book ${data.isReaded ? 'book__readed' : ''}`}>
-      <a className="book__img" href="#"><img src={data.img} alt="" /></a>
-      <div className="book__desc">
-        <a className="book__title" href="#">{data.name}</a>
-        <p>
-Description:
-          {data.description}
-        </p>
-      </div>
-      <div className="book__rate">
-        <span>
+class Book extends PureComponent {
+  render() {
+    const { book, toogleBook } = this.props;
+
+    console.log(`render-${book.id}`);
+
+    return (
+      <div
+        className={`book ${book.isReaded ? 'book__readed' : ''}`}
+        onClick={toogleBook}
+        data-id={book.id}
+      >
+        <a className="book__img" href="#"><img src={book.img} alt="" /></a>
+        <div className="book__desc">
+          <a className="book__title" href="#">{book.name}</a>
+          <p>
+                        Description:
+            {book.description}
+          </p>
+        </div>
+        <div className="book__rate">
+          <span>
 Rating:
-          {data.rating}
-        </span>
+            {book.rating}
+          </span>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
+// function Book({ data }) {
+//   return (
+//     <div className={`book ${data.isReaded ? 'book__readed' : ''}`}>
+//       <a className="book__img" href="#"><img src={data.img} alt="" /></a>
+//       <div className="book__desc">
+//         <a className="book__title" href="#">{data.name}</a>
+//         <p>
+// Description:
+//           {data.description}
+//         </p>
+//       </div>
+//       <div className="book__rate">
+//         <span>
+// Rating:
+//           {data.rating}
+//         </span>
+//       </div>
+//     </div>
+//   );
+// }
+
 Book.propTypes = {
-  data: PropTypes.shape({
+  book: PropTypes.shape({
     id: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
@@ -33,7 +64,8 @@ Book.propTypes = {
     description: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
     isReaded: PropTypes.bool
-  }).isRequired
+  }).isRequired,
+  toogleBook: PropTypes.func
 };
 
 export default Book;
