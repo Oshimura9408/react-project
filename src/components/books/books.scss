@@ -1,6 +1,7 @@
 .books {
   //max-width: 1100px;
   min-width: 320px;
+  margin: 0 10%;
 }
 
 .book {
@@ -8,6 +9,8 @@
   flex-direction: row;
   background: #f1f1f1;
   margin: 15px 0;
+
+  cursor: pointer;
 
   a {
     color: #333333;
@@ -21,13 +24,18 @@
     font-size: 16px;
   }
 
-  &__readed {
+  &--readed {
     background: #ed1b2f;
+  }
+
+  &:hover {
+    box-shadow: 0 5px 12px 0 #909090;
   }
 }
 
 .book__img {
   margin-top: 5px;
+  margin-left: 5px;
 }
 
 .book__desc {
