@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { Component, createRef } from 'react';
 
-function Search() {
-  return (
-    <form className="search">
-      <input className="search__input input__title" type="text" placeholder="Filter by title, description" />
-      <div className="filter__rate">
-        <p>Rate</p>
-        <input className="search__input input__rate" type="text" />
-        <input className="search__input input__rate" type="text" />
-      </div>
+class SearchBook extends Component {
+    textRef = createRef();
 
-      <ul className="search__filter">
-        <li className="list__item list__item--active">All</li>
-        <li className="list__item ">Read</li>
-        <li className="list__item ">Readed</li>
-      </ul>
+    onSubmit = (event) => {
+      event.preventDefault();
 
-    </form>
-  );
+      console.log(this.textRef.current.value);
+    };
+
+    render() {
+      return (
+        <form className="search" onSubmit={this.onSubmit}>
+          <input
+            ref={this.textRef}
+            className="search__input input__title"
+            type="text"
+            placeholder="Filter by title, description"
+          />
+          <button className="btn__search" type="submit">Search</button>
+        </form>
+      );
+    }
 }
 
-export default Search;
+export default SearchBook;

@@ -1,5 +1,10 @@
-export const fetchTasks = {
+export const fetchBooks = {
   path: '/api/books',
+  method: 'GET'
+};
+
+export const fetchBook = {
+  path: '/api/books/:id',
   method: 'GET'
 };
 
