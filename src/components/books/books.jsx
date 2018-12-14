@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import Book from './book';
 
-import Icon from '../icon/icon';
-
 import createRequest from '../../serv-files/create-request';
-import { fetchBooks, fetchBook } from '../../serv-files/api-config';
+import { fetchBooks, searchBook } from '../../serv-files/api-config';
 import classNames from '../../class-names/class-names';
 
 import SearchBook from '../search/search';
-import Item from "../item/item";
 
 class Books extends Component {
   state = {
     isLoading: true,
     books: [],
-    test: ''
+    currentBook: []
   };
 
   componentDidMount() {
@@ -24,6 +21,15 @@ class Books extends Component {
       }
     });
   }
+
+  searchBook = (name) => {
+    createRequest(searchBook, { name }, null).then(({ status, data }) => {
+      if (status === 'OK') {
+        this.setState({ books: [data] });
+        console.log(data, this.state, 'searchBook - data and state');
+      }
+    });
+  };
 
 
   toogleBook = (event) => {
@@ -45,8 +51,7 @@ class Books extends Component {
     return (
 
       <div className={classNames('books', { loading: isLoading })}>
-        <SearchBook />
-        <Icon name="camera"/>
+        <SearchBook searchBook={this.searchBook} />
         {books.map(book => (
           <Book book={book} toogleBook={this.toogleBook} key={book.id} />
         ))}

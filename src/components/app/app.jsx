@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import Search from '../search/search';
 import Books from '../books/books';
 import About from '../about/about';
-// import Icon from '../components/icon/icon';
 
 import Item from '../item/item';
 

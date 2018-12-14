@@ -4,9 +4,11 @@ class SearchBook extends Component {
     textRef = createRef();
 
     onSubmit = (event) => {
+      const { searchBook } = this.props;
       event.preventDefault();
 
       console.log(this.textRef.current.value);
+      searchBook(this.textRef.current.value);
     };
 
     render() {

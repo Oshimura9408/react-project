@@ -1,6 +1,7 @@
 @import "components/search/search";
 @import "components/books/books";
 @import "components/about/about";
+@import "components/icon/icon";
 
 * {
   box-sizing: border-box;
@@ -13,12 +14,4 @@ body {
 
   padding: 0;
   margin: 0;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
-  margin: 30px;
-
-  fill: red;
 }

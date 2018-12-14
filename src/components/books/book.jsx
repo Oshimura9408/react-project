@@ -1,8 +1,8 @@
-import React, { Component, PureComponent } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Icon from '../icon/icons.svg';
+import Icon from '../icon/icon';
 
 class Book extends PureComponent {
   render() {
@@ -25,6 +25,13 @@ class Book extends PureComponent {
           </p>
         </div>
         <div className="book__rate">
+          <div className="stars">
+            <Icon name="star" />
+            <Icon name="star" />
+            <Icon name="star" />
+            <Icon name="star" />
+            <Icon name="star" />
+          </div>
           <span>
 Rating:
             {book.rating}

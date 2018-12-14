@@ -8,6 +8,11 @@ export const fetchBook = {
   method: 'GET'
 };
 
+export const searchBook = {
+  path: '/api/books/:name',
+  method: 'GET'
+};
+
 export const createTask = {
   path: '/api/v001/tasks',
   method: 'POST'

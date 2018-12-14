@@ -7,7 +7,8 @@ module.exports = {
   entry: ['./src/main.js', './src/main.scss'],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
 
   resolve: {

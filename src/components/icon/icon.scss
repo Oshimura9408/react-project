@@ -1,0 +1,18 @@
+.stars {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+
+  &-star {
+    fill: #efce4a;
+  }
+
+  &-star:hover {
+    fill: blue;
+  }
+}
