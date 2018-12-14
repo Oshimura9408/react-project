@@ -1,4 +1,5 @@
 import React, { Component, PureComponent } from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Icon from '../icon/icons.svg';
@@ -17,7 +18,7 @@ class Book extends PureComponent {
       >
         <a className="book__img" href="#"><img src={book.img} alt="" /></a>
         <div className="book__desc">
-          <a className="book__title" href="#">{book.name}</a>
+          <Link className="book__title" to={`books/${book.id}`} book={book}>{book.name}</Link>
           <p>
                         Description:
             {book.description}
