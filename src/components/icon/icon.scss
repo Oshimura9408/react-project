@@ -16,3 +16,15 @@
     fill: blue;
   }
 }
+
+.star-ratings {
+  display: flex;
+}
+
+.star-container {
+  svg {
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+  }
+}

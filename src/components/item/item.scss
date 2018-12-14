@@ -1,0 +1,55 @@
+.book__item {
+  padding: 10px;
+}
+
+.item__container {
+  display: flex;
+}
+
+.item__img {
+  margin-right: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item__info {
+  margin-right: 35px;
+
+  .info__line {
+    margin-bottom: 10px;
+    display: flex;
+
+    .key {
+      display: block;
+      width: 60px;
+      color: gray;
+      padding-right: 5px;
+    }
+  }
+}
+
+.item__rate {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    display: block;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #e8ebef;
+  border-left: 5px solid #d8dde4;
+  font-weight: 600;
+}
+
+.desc__text {
+  padding: 0 25px;
+}
+
+select {
+  width: 100%;
+}
