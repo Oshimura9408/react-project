@@ -9,18 +9,11 @@ export const fetchBook = {
 };
 
 export const searchBook = {
-  path: '/api/books/:name',
+  path: '/api/books/',
   method: 'GET'
 };
 
-export const createTask = {
-  path: '/api/v001/tasks',
-  method: 'POST'
+export const updateBook = {
+  path: '/api/books/:id',
+  method: 'PATCH'
 };
-
-export const deleteTasks = {
-  path: '/api/tasks/:id',
-  method: 'DELETE'
-};
-
-// create Request (deleteTasks, {id:'001'})

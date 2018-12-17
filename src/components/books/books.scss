@@ -4,6 +4,23 @@
   margin: 0 10%;
 }
 
+.filters {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  margin: 0 auto;
+
+  .filter__item {
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid grey;
+
+    &:hover {
+      background: #909090;
+    }
+  }
+}
+
 .book {
   display: flex;
   flex-direction: row;

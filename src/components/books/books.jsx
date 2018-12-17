@@ -7,11 +7,21 @@ import classNames from '../../class-names/class-names';
 
 import SearchBook from '../search/search';
 
+import visibilFilter from '../constants';
+
+const text = {
+  filters: {
+    all: 'All',
+    read: 'Read',
+    readed: 'Readed'
+  }
+};
+
 class Books extends Component {
   state = {
     isLoading: true,
     books: [],
-    currentBook: []
+    filter: visibilFilter.ALL
   };
 
   componentDidMount() {
@@ -22,38 +32,54 @@ class Books extends Component {
     });
   }
 
-  searchBook = (name) => {
-    createRequest(searchBook, { name }, null).then(({ status, data }) => {
+  searchBook = (search) => {
+    createRequest(searchBook, { search }, null).then(({ status, data }) => {
       if (status === 'OK') {
-        this.setState({ books: [data] });
+        this.setState({ isLoading: false, books: data });
         console.log(data, this.state, 'searchBook - data and state');
       }
     });
   };
 
 
-  toogleBook = (event) => {
-    const { id } = event.currentTarget.dataset;
-
-    this.setState(state => ({
-      books: state.books.map((book) => {
-        if (book.id === id) {
-          return { ...book, isReaded: !book.isReaded };
-        }
-        return book;
-      })
-    }));
+  changeFilter = (newFilter) => {
+    this.setState({ filter: newFilter });
   };
 
   render() {
-    const { books, isLoading } = this.state;
+    const { books, isLoading, filter } = this.state;
+
+    const filterBooks = books.filter((book) => {
+      switch (filter) {
+        case visibilFilter.READ:
+          return !book.isReaded;
+
+        case visibilFilter.READED:
+          return book.isReaded;
+
+        case visibilFilter.ALL:
+        default:
+          return true;
+      }
+    });
 
     return (
 
       <div className={classNames('books', { loading: isLoading })}>
         <SearchBook searchBook={this.searchBook} />
-        {books.map(book => (
-          <Book book={book} toogleBook={this.toogleBook} key={book.id} />
+        <div className="filters">
+          {['ALL', 'READ', 'READED'].map(item => (
+            <div
+              className={`filter__item filter__item--${item.toLocaleLowerCase()}`}
+              onClick={this.changeFilter.bind(this, visibilFilter[item])}
+              key={item}
+            >
+              {item.toLowerCase()}
+            </div>
+          ))}
+        </div>
+        {filterBooks.map(book => (
+          <Book book={book} key={book.id} />
         ))}
       </div>
     );

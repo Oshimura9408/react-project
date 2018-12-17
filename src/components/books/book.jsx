@@ -7,14 +7,13 @@ import Icon from '../icon/icon';
 
 class Book extends PureComponent {
   render() {
-    const { book, toogleBook } = this.props;
+    const { book } = this.props;
 
     console.log(`render-${book.id}`);
 
     return (
       <div
         className={`book ${book.isReaded ? 'book--readed' : ''}`}
-        onClick={toogleBook}
         data-id={book.id}
       >
         <a className="book__img" href="#"><img src={book.img} alt="" /></a>
@@ -52,8 +51,7 @@ Book.propTypes = {
     description: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     isReaded: PropTypes.bool
-  }).isRequired,
-  toogleBook: PropTypes.func
+  }).isRequired
 };
 
 export default Book;
