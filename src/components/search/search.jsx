@@ -18,9 +18,9 @@ class SearchBook extends Component {
             ref={this.textRef}
             className="search__input input__title"
             type="text"
-            placeholder="Filter by title, description"
+            placeholder="Поиск по названию"
           />
-          <button className="btn__search" type="submit">Search</button>
+          <button className="btn__search" type="submit">Найти</button>
         </form>
       );
     }

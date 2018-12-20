@@ -1,0 +1,36 @@
+.form__page {
+  width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      width: 280px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.form__title {
+  margin: 25px 0;
+  font-size: 25px;
+}
+
+.form__item {
+  width: 275px;
+  background: #ffffff;
+  padding: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  &:nth-child(3) {
+    input {
+      width: 50px;
+    }
+  }
+}

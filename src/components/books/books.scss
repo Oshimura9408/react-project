@@ -1,13 +1,27 @@
+a {
+  text-decoration: none;
+  &:active {
+    color: #000000;
+  }
+
+  &:visited {
+    color: #000000;
+  }
+
+}
+
 .books {
   //max-width: 1100px;
   min-width: 320px;
   margin: 0 10%;
+  background: #f1f1f1;
+  position: relative;
 }
 
 .filters {
   display: flex;
   justify-content: space-between;
-  width: 280px;
+  width: 320px;
   margin: 0 auto;
 
   .filter__item {
@@ -21,16 +35,18 @@
   }
 }
 
+
+
 .book {
   display: flex;
   flex-direction: row;
-  background: #f1f1f1;
+  background: #8b89a5;
   margin: 15px 0;
 
   cursor: pointer;
 
-  a {
-    color: #333333;
+  span {
+    color: #ffb400;
     text-decoration: none;
     font-size: 25px;
     font-weight: 400;
@@ -42,7 +58,16 @@
   }
 
   &--readed {
-    opacity: 0.3;
+    background: #424273;
+    //opacity: 0.3;
+    position: relative;
+    //&::before {
+    //  content: 'Прочитано';
+    //  position: absolute;
+    //  top: 22px;
+    //  right: 90px;
+    //  font-size: 25px;
+    //}
   }
 
   &:hover {
@@ -53,6 +78,14 @@
 .book__img {
   margin-top: 5px;
   margin-left: 5px;
+}
+
+.books__title {
+  background-image: url("../../img/book.jpg");
+  background-position: center;
+  background-repeat: repeat-x;
+  height: 420px;
+  margin-bottom: 15px;
 }
 
 .book__desc {

@@ -20,9 +20,9 @@ class Input extends PureComponent {
       const { label, name } = this.props;
 
       return (
-        <div>
+        <div className="form__item">
           <label>{label}</label>
-          <input type="text" name={name} ref={this.fieldElement} onChange={this.onChange} />
+          <input type="text" name={name} ref={this.fieldElement} onChange={this.onChange} required />
         </div>
       );
     }

@@ -22,3 +22,8 @@ export const addBook = {
   path: '/api/books/',
   method: 'POST'
 };
+
+export const deleteBook = {
+  path: '/api/books/:id',
+  method: 'DELETE'
+};

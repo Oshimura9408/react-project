@@ -12,32 +12,40 @@ class Book extends PureComponent {
     console.log(`render-${book.id}`);
 
     return (
-      <div
-        className={`book ${book.isReaded ? 'book--readed' : ''}`}
-        data-id={book.id}
-      >
-        <a className="book__img" href="#"><img src={book.img} alt="" /></a>
-        <div className="book__desc">
-          <Link className="book__title" to={`books/${book.id}`} book={book}>{book.name}</Link>
-          <p>
-                        Description:
-            {book.description}
-          </p>
-        </div>
-        <div className="book__rate">
-          <div className="stars">
-            <span>
-Rating:
-            </span>
-            <StarRatingComponent
-              name="rate"
-              starCount={5}
-              value={book.rating}
-              editing={false}
-            />
+      <Link to={`books/${book.id}`} book={book.id}>
+        <div
+          className={`book ${book.isReaded ? 'book--readed' : ''}`}
+          data-id={book.id}
+        >
+          <a className="book__img" href="#"><img src={book.img} alt="" /></a>
+          <div className="book__desc">
+            <span className="book__title">{book.name}</span>
+            <p>
+              Описание :
+              {' '}
+              {book.description}
+            </p>
+          </div>
+          <div className="book__rate">
+            <div className="stars">
+              <span>
+                Рейтинг:
+              </span>
+              <StarRatingComponent
+                name="rate"
+                starCount={5}
+                value={book.rating}
+                editing={false}
+              />
+            </div>
+            <div className="book__progress">
+            Прочитано :
+              {' '}
+              {book.progress}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

@@ -2,15 +2,16 @@ import React, { PureComponent } from 'react';
 import Input from './input';
 import createRequest from '../../serv-files/create-request';
 import { addBook } from '../../serv-files/api-config';
+import { Link } from 'react-router-dom';
 
 class Form extends PureComponent {
     state = {};
 
     fields = [
-      { label: 'Name', name: 'name' },
-      { label: 'Genre', name: 'genre' },
-      { label: 'Rating', name: 'rating' },
-      { label: 'Description', name: 'description' }
+      { label: 'Название', name: 'name' },
+      { label: 'Жанр', name: 'genre' },
+      { label: 'Рейтинг', name: 'rating' },
+      { label: 'Описание', name: 'description' }
     ];
 
     onSubmit = (event) => {
@@ -34,12 +35,18 @@ class Form extends PureComponent {
     render() {
       console.log(this.state);
       return (
-        <form onSubmit={this.onSubmit} addBook={addBook}>
-          {this.fields.map(fieldData => (
-            <Input {...fieldData} handleChange={this.handleChange} />
-          ))}
-          <button type="submit">add</button>
-        </form>
+        <div className="form__page">
+          <div className="form__title">
+            Добавьте свою книгу
+          </div>
+
+          <form onSubmit={this.onSubmit}>
+            {this.fields.map(fieldData => (
+              <Input {...fieldData} handleChange={this.handleChange} />
+            ))}
+            <button type="submit">Добавить</button>
+          </form>
+        </div>
       );
     }
 }

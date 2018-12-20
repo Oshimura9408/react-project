@@ -1,6 +1,13 @@
 .stars {
   display: flex;
   flex-wrap: nowrap;
+  margin-bottom: 5px;
+
+  span {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 400;
+  }
 }
 
 .icon {
