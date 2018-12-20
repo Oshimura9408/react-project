@@ -17,3 +17,8 @@ export const updateBook = {
   path: '/api/books/:id',
   method: 'PATCH'
 };
+
+export const addBook = {
+  path: '/api/books/',
+  method: 'POST'
+};
