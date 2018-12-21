@@ -31,12 +31,13 @@ class Book extends PureComponent {
               <span>
                 Рейтинг:
               </span>
-              <StarRatingComponent
-                name="rate"
-                starCount={5}
-                value={book.rating}
-                editing={false}
-              />
+              {!book.isReaded ? 'еще нет оценки' : <StarRatingComponent name="rate" starCount={5} value={book.rating} editing={false} />}
+              {/* <StarRatingComponent */}
+              {/* name="rate" */}
+              {/* starCount={5} */}
+              {/* value={book.rating} */}
+              {/* editing={false} */}
+              {/* /> */}
             </div>
             <div className="book__progress">
             Прочитано :

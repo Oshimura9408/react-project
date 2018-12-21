@@ -95,7 +95,9 @@ export default class Item extends Component {
               <div>
                           Рейтинг:
                 {' '}
-                <StarRatingComponent name="rate" starCount={5} value={book.rating} editing={false} />
+                {!book.isReaded ? 'Еще нет оценки' : <StarRatingComponent name="rate" starCount={5} value={book.rating} editing={false} />}
+                {' '}
+
               </div>
             </div>
           </div>

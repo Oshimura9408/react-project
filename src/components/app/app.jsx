@@ -29,14 +29,14 @@ import Item from '../item/item';
 // );
 
 class App extends Component {
-    searchBook = (search) => {
-      createRequest(searchBook, { search }, null).then(({ status, data }) => {
-        if (status === 'OK') {
-          this.setState({ isLoading: false, books: data });
-          console.log(data, this.state, 'searchBook - data and state');
-        }
-      });
-    };
+    // searchBook = (search) => {
+    //   createRequest(searchBook, { search }, null).then(({ status, data }) => {
+    //     if (status === 'OK') {
+    //       this.setState({ isLoading: false, books: data });
+    //       console.log(data, this.state, 'searchBook - data and state');
+    //     }
+    //   });
+    // };
 
     render() {
       return (
@@ -48,7 +48,7 @@ class App extends Component {
                 <Link to="/add">Добавить книгу</Link>
                 <Link to="/about">О приложении</Link>
               </div>
-              <SearchBook searchBook={this.searchBook} />
+              {/*<SearchBook searchBook={this.searchBook} />*/}
             </div>
             <Route exact path="/" component={Books} />
             <Route path="/about" component={About} />

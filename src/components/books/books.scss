@@ -16,16 +16,21 @@ a {
   margin: 0 10%;
   background: #f1f1f1;
   position: relative;
+  &--loading {
+    &::after {
+      content: '123';
+    }
+  }
 }
 
 .filters {
   display: flex;
   justify-content: space-between;
-  width: 320px;
+  width: 280px;
   margin: 0 auto;
 
   .filter__item {
-    padding: 15px;
+    padding: 12px;
     cursor: pointer;
     border: 1px solid grey;
 
@@ -35,11 +40,9 @@ a {
   }
 }
 
-
-
 .book {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background: #8b89a5;
   margin: 15px 0;
 
@@ -110,4 +113,110 @@ a {
   align-self: center;
   margin-left: auto;
   margin-right: 25px;
+}
+
+@media (min-width: 1100px) {
+  a {
+    text-decoration: none;
+    &:active {
+      color: #000000;
+    }
+
+    &:visited {
+      color: #000000;
+    }
+
+  }
+
+  .books {
+    min-width: 320px;
+    margin: 0 10%;
+    background: #f1f1f1;
+    position: relative;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+    margin: 0 auto;
+
+    .filter__item {
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid grey;
+
+      &:hover {
+        background: #909090;
+      }
+    }
+  }
+
+  .book {
+    display: flex;
+    flex-direction: row;
+    background: #8b89a5;
+    margin: 15px 0;
+
+    cursor: pointer;
+
+    span {
+      color: #ffb400;
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    p {
+      color: #adafb2;
+      font-size: 16px;
+    }
+
+    &--readed {
+      background: #424273;
+      position: relative;
+    }
+
+    &:hover {
+      box-shadow: 0 5px 12px 0 #909090;
+    }
+  }
+
+  .book__img {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .books__title {
+    background-image: url("../../img/book.jpg");
+    background-position: center;
+    background-repeat: repeat-x;
+    height: 420px;
+    margin-bottom: 15px;
+  }
+
+  .book__desc {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin-left: 10px;
+    margin-right: 30px;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow:ellipsis;
+    }
+  }
+
+  .book__title {
+    margin: 10px 0;
+  }
+
+  .book__rate {
+    align-self: center;
+    margin-left: auto;
+    margin-right: 25px;
+  }
+
 }

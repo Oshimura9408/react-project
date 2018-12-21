@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Book from './book';
 
 import createRequest from '../../serv-files/create-request';
-import { fetchBooks } from '../../serv-files/api-config';
+import { fetchBooks, searchBook } from '../../serv-files/api-config';
 import classNames from '../../class-names/class-names';
+import SearchBook from '../search/search';
 
 import visibilFilter from '../constants';
 
@@ -30,14 +31,14 @@ class Books extends Component {
     });
   }
 
-  // searchBook = (search) => {
-  //   createRequest(searchBook, { search }, null).then(({ status, data }) => {
-  //     if (status === 'OK') {
-  //       this.setState({ isLoading: false, books: data });
-  //       console.log(data, this.state, 'searchBook - data and state');
-  //     }
-  //   });
-  // };
+  searchBook = (search) => {
+    createRequest(searchBook, { search }, null).then(({ status, data }) => {
+      if (status === 'OK') {
+        this.setState({ isLoading: false, books: data });
+        console.log(data, this.state, 'searchBook - data and state');
+      }
+    });
+  };
 
 
   changeFilter = (newFilter) => {
@@ -65,6 +66,7 @@ class Books extends Component {
 
       <div className={classNames('books', { loading: isLoading })}>
         <div className="books__title" />
+        <SearchBook searchBook={this.searchBook} />
         <div className="filters">
           {['ALL', 'READ', 'READED'].map(item => (
             <div
@@ -76,6 +78,7 @@ class Books extends Component {
             </div>
           ))}
         </div>
+
         {filterBooks.map(book => (
           <Book book={book} key={book.id} />
         ))}
